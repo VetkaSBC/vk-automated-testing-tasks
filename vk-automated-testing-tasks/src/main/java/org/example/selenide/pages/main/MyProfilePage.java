@@ -16,6 +16,7 @@ public class MyProfilePage extends BaseMainPage {
     private final SelenideElement profileNavigationMenu = $(byXpath(".//nav[@data-l='t,horizontalNavigation']"));
 
 
+
     public MyProfilePage() {
         checkPage();
     }

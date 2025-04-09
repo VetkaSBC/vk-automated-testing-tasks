@@ -10,10 +10,6 @@ import static com.codeborne.selenide.WebDriverRunner.clearBrowserCache;
 public abstract class BaseTest {
     protected static final String BROWSER = "chrome";
     protected static final String BASE_URL = "https://ok.ru";
-    protected static final String EMAIL = "vetoshevdanila@mail.ru";
-    protected static final String PASSWORD = "Vdv32514!";
-    protected static final String NAME = "Chill Guy";
-
     @BeforeAll
     public static void setUp() {
         Configuration.browser = BROWSER;

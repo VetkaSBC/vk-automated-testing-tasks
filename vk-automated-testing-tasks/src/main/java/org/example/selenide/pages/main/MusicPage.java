@@ -31,15 +31,14 @@ public class MusicPage {
 
     public MusicPage enterMusic(String Name) {
         musicSearchField.shouldBe(visible).setValue(Name);
-        sleep(2000);
+        sleep(1000);
         musicSearchField.pressEnter();
-        sleep(5000);
         return this;
     }
 
     public MusicPage playMusic() {
         selectMusic.shouldBe(visible).click();
-        sleep(10000);
+        sleep(2000);
         return this;
     }
 
@@ -47,25 +46,21 @@ public class MusicPage {
         nextMusicPlayButton.shouldBe(
                 visible.because("Button next track should be visible on all main pages.")
         ).click();
-        sleep(10000);
         return this;
     }
 
     public MusicPage pauseMusic() {
         pauseMusicButton.shouldBe(visible).click();
-        sleep(1000);
         return this;
     }
 
     public MusicPage isMusicPaused() {
         playMusicButton.shouldBe(visible);
-        sleep(1000);
         return this;
     }
 
     public MusicPage isMusicPlaying() {
         pauseMusicButton.shouldBe();
-        sleep(1000);
         return this;
     }
 
