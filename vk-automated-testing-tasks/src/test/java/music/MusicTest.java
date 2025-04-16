@@ -1,53 +1,46 @@
-package secondTask;
+package music;
 
 import static com.codeborne.selenide.Selenide.open;
+import static secondTask.TestData.EMAIL;
+import static secondTask.TestData.PASSWORD;
+
 import org.example.selenide.pages.main.LoginPage;
 import org.example.selenide.pages.main.FeedPage;
-import org.example.selenide.pages.main.MusicPage;
+
+
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
+import secondTask.BaseTest;
 
 import java.util.concurrent.TimeUnit;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 @Tag("Music test")
-public class MusicTest extends BaseTest{
-    private static final String MUSIC_NAME = "happy nation remastered";
-    private MusicPage musicPage;
+public class MusicTest extends BaseTest {
 
     @BeforeAll
     public static void login() {
         new LoginPage()
-                .enterEmail(TestData.EMAIL)
-                .enterPassword(TestData.PASSWORD)
+                .enterEmail(EMAIL)
+                .enterPassword(PASSWORD)
                 .clickSubmit();
     }
 
-    @BeforeEach
-    public void setup() {
-        musicPage = new FeedPage().clickMusic();
-    }
-
-
     @Tag("Playing music test")
-    @DisplayName("Тест раздела музыки")
+    @DisplayName("Тест воспроизведения музыки")
     @ParameterizedTest
     @ValueSource(strings = {"happy nation remastered", "my ordinary life"})
     @Timeout(value = 25, unit = TimeUnit.SECONDS)
     public void testMusicPlay(String musicName) {
-        musicPage.enterMusic(musicName)
-                .playMusic()
-                .isMusicPlaying()
+        new FeedPage().clickMusic();
+
+        new MusicSteps()
+                .openMusicPage()
+                .searchAndPlayMusic(musicName)
                 .pauseMusic()
-                .isMusicPaused()
-                .nextMusicPlayButton()
-                .isMusicPlaying()
+                .playNextTrack()
                 .pauseMusic()
-                .isMusicPaused();
-        assertTrue(musicPage.checkPage()
-        );
+                .verifyMusicPageLoaded();
     }
 
     @AfterEach

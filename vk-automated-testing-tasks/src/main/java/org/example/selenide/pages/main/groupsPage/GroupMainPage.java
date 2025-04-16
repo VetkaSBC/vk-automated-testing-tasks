@@ -1,11 +1,10 @@
-package org.example.selenide.pages.main;
+package org.example.selenide.pages.main.groupsPage;
 
 import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.sleep;
 
 public class GroupMainPage{
     private final SelenideElement groupToolbar = $(byId("hook_Block_UserGroupsCatalogHeaderBlock"));

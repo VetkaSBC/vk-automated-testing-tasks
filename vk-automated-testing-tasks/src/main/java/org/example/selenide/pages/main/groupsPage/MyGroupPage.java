@@ -1,11 +1,10 @@
-package org.example.selenide.pages.main;
+package org.example.selenide.pages.main.groupsPage;
 
 import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.sleep;
 
 public class MyGroupPage {
     private final SelenideElement groupAvatar = $(byId("hook_Block_Avatar"));
@@ -16,6 +15,7 @@ public class MyGroupPage {
     private final SelenideElement deleteGroupButton = $(byText("Удалить"));
     private final SelenideElement confirmDeleteGroupButton = $(byXpath(".//input[@data-l='t,confirm']"));
     private final SelenideElement myGroups = $(byId("hook_Block_MyGroupsTopBlock"));
+
 
     public MyGroupPage() {
         checkPage();
@@ -56,6 +56,8 @@ public class MyGroupPage {
         myGroups.shouldBe(visible);
         return true;
     }
+
+
 
 
 }

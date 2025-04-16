@@ -14,6 +14,7 @@ public abstract class BaseTest {
     public static void setUp() {
         Configuration.browser = BROWSER;
         Configuration.baseUrl = BASE_URL;
+
         Selenide.open("/");
     }
 

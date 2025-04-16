@@ -2,6 +2,7 @@ package org.example.selenide.pages.main;
 
 import com.codeborne.selenide.SelenideElement;
 import org.example.selenide.BasePage;
+import org.example.selenide.pages.main.groupsPage.GroupMainPage;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byXpath;
